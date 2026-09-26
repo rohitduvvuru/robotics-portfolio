@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rohit Duvvuru — robotics and robot learning portfolio featuring reinforcement learning, multi-robot autonomy, localization, ROS, and simulation." />
+  <meta name="theme-color" content="#0b1726" />
+  <title>Rohit Duvvuru | Robotics & Robot Learning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav-shell">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#top">RD</a>
+      <div class="nav-links">
+        <a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a>
+        <a href="assets/docs/Rohit_Duvvuru_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">ROBOTICS · ROBOT LEARNING · AUTONOMY</p>
+        <h1>Rohit Duvvuru</h1>
+        <p class="hero-title">Robotics / Robot Learning Engineer</p>
+        <p class="hero-lede">I build learning-based robotic systems spanning reinforcement learning, multi-robot autonomy, localization, simulation, and deployment-oriented robotics software.</p>
+        <div class="hero-actions"><a class="button primary" href="#work">View projects</a><a class="button secondary" href="assets/docs/Rohit_Duvvuru_Resume.pdf" target="_blank" rel="noreferrer">Resume</a></div>
+        <div class="social-row">
+          <a class="text-link" href="https://github.com/rohitduvvuru" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="text-link" href="https://www.linkedin.com/in/rohit-duvvuru-computer-scientist/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="text-link" href="mailto:roduvvuru@gmail.com">Email ↗</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Focus areas">
+        <p class="panel-label">CURRENT FOCUS</p>
+        <div class="focus-item"><span>01</span><strong>Robot Learning</strong><small>PPO · RL · GNNs · PyTorch</small></div>
+        <div class="focus-item"><span>02</span><strong>Robotics Systems</strong><small>ROS / ROS 2 · Gazebo · Isaac Sim</small></div>
+        <div class="focus-item"><span>03</span><strong>Autonomy</strong><small>Localization · LiDAR · Multi-Robot</small></div>
+      </div>
+    </section>
+
+    <section id="work" class="section container">
+      <div class="section-heading"><p class="eyebrow">FEATURED WORK</p><h2>Robots that learn, localize, and adapt.</h2><p>Selected projects with experiment outputs, simulation evidence, and implementation details.</p></div>
+
+      <article class="project flagship">
+        <div class="project-number">01</div>
+        <div class="project-head">
+          <div><p class="project-kicker">MULTI-ROBOT AUTONOMY · REINFORCEMENT LEARNING</p><h3>Dynamic Multi-Robot Formation Control</h3><p class="project-summary">A ROS 2 autonomy and learning framework for robot teams that reconfigure when robots join, leave, or are externally disturbed while continuing toward a shared destination.</p></div>
+          <div class="tech-row"><span class="tech">ROS 2</span><span class="tech">PPO</span><span class="tech">GNN</span><span class="tech">PyTorch</span><span class="tech">Gymnasium</span><span class="tech">Gazebo</span></div>
+        </div>
+        <div class="video-frame"><video controls muted playsinline preload="metadata" poster="assets/images/multi_robot_gazebo.png"><source src="assets/videos/multi_robot_demo.mp4" type="video/mp4" /></video></div>
+        <div class="project-grid">
+          <div class="project-copy">
+            <h4>Problem</h4><p>Keep coordinated navigation robust when the active team composition changes at runtime.</p>
+            <h4>My work</h4><p>Built the Gymnasium-compatible multi-robot environment, trained and evaluated the GNN-based PPO policy, and developed the surrounding ROS 2 autonomy framework for coordinated navigation, reconfiguration, and autonomous joining/leaving.</p>
+            <h4>Learning design</h4><p>Used per-robot control, agent masking, teleoperation disturbances, collision and goal rewards, and formation-error metrics. A single policy was used across changing formation sizes.</p>
+          </div>
+          <div class="result-card"><span class="result-label">RESULT</span><strong>Epoch 1000</strong><p>My trained policy consistently reached the goal while maintaining formation during navigation.</p><div class="divider"></div><span class="result-label">ENGINEERING LESSON</span><p>Robot turning constraints exposed a sim-to-real mismatch, reinforcing the importance of physics-aware training and hardware validation.</p></div>
+        </div>
+        <div class="image-pair">
+          <figure><img loading="lazy" src="assets/images/multi_robot_reformation.png" alt="Robot team teleoperation and reformation sequence" /><figcaption>Teleoperation and formation reconfiguration sequence.</figcaption></figure>
+          <figure><img loading="lazy" src="assets/images/multi_robot_gazebo.png" alt="Gazebo environment used for multi-robot verification" /><figcaption>ROS/Gazebo verification environment.</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-number">02</div>
+        <div class="project-head">
+          <div><p class="project-kicker">REINFORCEMENT LEARNING · MOBILE ROBOTICS</p><h3>Autonomous Wall Following with Q-Learning &amp; SARSA</h3><p class="project-summary">LiDAR-based wall following formulated as a discrete MDP and trained with tabular reinforcement learning in Gazebo.</p></div>
+          <div class="tech-row"><span class="tech">ROS</span><span class="tech">Gazebo</span><span class="tech">Q-Learning</span><span class="tech">SARSA</span><span class="tech">LiDAR</span></div>
+        </div>
+        <div class="split-media">
+          <div class="video-frame compact"><video controls muted playsinline preload="metadata" poster="assets/images/wall_straight.png"><source src="assets/videos/wall_following_demo.mp4" type="video/mp4" /></video></div>
+          <div class="project-copy compact-copy"><h4>Method</h4><p>Three LiDAR sectors, discretized distance states, motion primitives, epsilon-greedy exploration, reward shaping, and expert-initialized Q-tables.</p><h4>Evaluation</h4><p>Compared Q-learning and SARSA across 300 episodes and tested the greedy policy on straight walls, turns, and an unseen isolated wall segment.</p><h4>Outcome</h4><p>SARSA produced the stronger and smoother late-training reward trend while the learned policy transferred to the disconnected I-shaped geometry.</p></div>
+        </div>
+        <figure class="wide-figure"><img loading="lazy" src="assets/images/wall_reward_curve.png" alt="Accumulated reward versus episode for Q-learning and SARSA" /><figcaption>Accumulated reward across 300 training episodes per algorithm.</figcaption></figure>
+        <div class="image-pair small"><figure><img loading="lazy" src="assets/images/wall_straight.png" alt="Robot following a wall in Gazebo" /><figcaption>Standard wall-following scenario.</figcaption></figure><figure><img loading="lazy" src="assets/images/wall_ibeam.png" alt="Robot generalizing to an I-shaped wall in Gazebo" /><figcaption>Generalization to disconnected I-shaped geometry.</figcaption></figure></div>
+      </article>
+
+      <article class="project">
+        <div class="project-number">03</div>
+        <div class="project-head">
+          <div><p class="project-kicker">STATE ESTIMATION · PROBABILISTIC ROBOTICS</p><h3>Particle Filter Localization</h3><p class="project-summary">Global indoor robot localization using odometry prediction, LiDAR likelihood weighting, systematic resampling, and random particle reinjection.</p></div>
+          <div class="tech-row"><span class="tech">Python</span><span class="tech">ROS Noetic</span><span class="tech">RViz</span><span class="tech">SLAM</span><span class="tech">2D LiDAR</span><span class="tech">NumPy</span></div>
+        </div>
+        <div class="pipeline" aria-label="Particle filter localization pipeline">
+          <div class="pipe-step"><span>1</span><strong>Initialize</strong><small>1,000 global particles</small></div><div class="pipe-arrow">→</div>
+          <div class="pipe-step"><span>2</span><strong>Predict</strong><small>Odometry motion model</small></div><div class="pipe-arrow">→</div>
+          <div class="pipe-step"><span>3</span><strong>Weight</strong><small>LiDAR likelihood field</small></div><div class="pipe-arrow">→</div>
+          <div class="pipe-step"><span>4</span><strong>Resample</strong><small>Systematic resampling</small></div><div class="pipe-arrow">→</div>
+          <div class="pipe-step"><span>5</span><strong>Reinject</strong><small>10% global samples</small></div><div class="pipe-arrow">→</div>
+          <div class="pipe-step"><span>6</span><strong>Estimate</strong><small>Publish robot pose</small></div>
+        </div>
+        <p class="pipeline-note">Steps 2–6 repeat for each new odometry + LiDAR update.</p>
+        <div class="metric-row"><div><strong>1,000</strong><span>particles</span></div><div><strong>10%</strong><span>random reinjection</span></div><div><strong>~20–40</strong><span>updates to stable convergence</span></div></div>
+        <div class="localization-grid"><figure><img loading="lazy" src="assets/images/localization_initial.png" alt="Initial global particle cloud in RViz" /><figcaption>Global initialization: broad pose hypotheses.</figcaption></figure><figure><img loading="lazy" src="assets/images/localization_converged.png" alt="Converged particle filter pose in RViz" /><figcaption>Converged estimate after informative motion and LiDAR updates.</figcaption></figure><figure><img loading="lazy" src="assets/images/localization_likelihood.png" alt="Precomputed likelihood field for particle filter measurement scoring" /><figcaption>Precomputed obstacle-distance likelihood field.</figcaption></figure></div>
+      </article>
+    </section>
+
+    <section id="experience" class="section muted-section"><div class="container"><div class="section-heading compact-heading"><p class="eyebrow">EXPERIENCE</p><h2>Research and engineering.</h2></div><div class="timeline"><div class="timeline-item"><div><span>2026 — Present</span><h3>Robotics Research Assistant</h3><p>UMass Amherst HCR Lab</p></div><p>Robot learning, ROS 2 autonomy, multi-robot coordination, simulation, policy training, and deployment-oriented integration for AgileX Limo robots.</p></div><div class="timeline-item"><div><span>2025</span><h3>Embedded Software Intern</h3><p>iVativ</p></div><p>Sensor integration over I2C/SPI/UART, BLE-enabled Edge AI monitoring, dataset collection, ML evaluation, and OTA firmware/model updates.</p></div></div></div></section>
+
+    <section id="skills" class="section container"><div class="section-heading compact-heading"><p class="eyebrow">TECHNICAL STACK</p><h2>Tools I use to build robotic systems.</h2></div><div class="skills-grid"><div class="skill-card"><h3>Robot Learning</h3><p>PPO · Reinforcement Learning · PyTorch · PyTorch Geometric · GNNs · Gymnasium · TensorFlow</p></div><div class="skill-card"><h3>Robotics &amp; Simulation</h3><p>ROS · ROS 2 · Gazebo · RViz · Isaac Sim · Isaac Lab · SLAM · LiDAR</p></div><div class="skill-card"><h3>Software</h3><p>Python · C · C++ · Linux · CMake · Java · JavaScript · SQL</p></div><div class="skill-card"><h3>Systems</h3><p>Distributed Systems · Multiprocessing · IPC · BLE · UART · I2C · SPI · Sensor Integration · AWS</p></div></div><p class="github-note">Additional project images and demo videos are available in the corresponding project README files on <a class="text-link" href="https://github.com/rohitduvvuru" target="_blank" rel="noreferrer">my GitHub ↗</a>.</p></section>
+
+    <section class="contact-section"><div class="container contact-inner"><div><p class="eyebrow">CONTACT</p><h2>Interested in robotics, autonomy, or robot learning?</h2></div><div class="contact-links"><a class="button primary light" href="mailto:roduvvuru@gmail.com">Email me</a><a class="text-link" href="https://www.linkedin.com/in/rohit-duvvuru-computer-scientist/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a class="text-link" href="https://github.com/rohitduvvuru" target="_blank" rel="noreferrer">GitHub ↗</a></div></div></section>
+  </main>
+  <footer><div class="container footer-inner"><span>© 2026 Rohit Duvvuru</span><span>Robotics · Robot Learning · Autonomy</span></div></footer>
+</body>
+</html>
